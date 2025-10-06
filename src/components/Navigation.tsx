@@ -49,7 +49,7 @@ const Navigation = () => {
           <div className="flex items-center justify-between h-16">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-xl font-bold bg-gradient-to-r from-green-700 to-blue-600 bg-clip-text text-transparent cursor-pointer"
+              className="text-xl font-bold bg-gradient-to-r from-primary to-primary-600 bg-clip-text text-transparent cursor-pointer"
               onClick={() => scrollToSection('home')}
             >
               MDBK
@@ -64,8 +64,8 @@ const Navigation = () => {
                     onClick={() => scrollToSection(item.id)}
                     className={`relative px-4 py-2 rounded-lg transition-all duration-300 ${
                       activeSection === item.id
-                        ? 'text-green-700 dark:text-green-400'
-                        : 'text-gray-600 dark:text-gray-400 hover:text-green-700 dark:hover:text-green-400'
+                        ? 'text-primary dark:text-primary-400'
+                        : 'text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-400'
                     }`}
                   >
                     <span className="flex items-center gap-2 font-medium">
@@ -75,7 +75,7 @@ const Navigation = () => {
                     {activeSection === item.id && (
                       <motion.div
                         layoutId="activeSection"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-green-700 to-blue-600"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-primary-600"
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -117,8 +117,8 @@ const Navigation = () => {
                   whileTap={{ scale: 0.95 }}
                   className={`relative group p-2 rounded-full transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'bg-gradient-to-r from-green-700 to-blue-600 text-white'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-green-700 dark:hover:text-green-400'
+                      ? 'bg-gradient-to-r from-primary to-primary-600 text-white'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-400'
                   }`}
                   title={item.label}
                 >
@@ -143,7 +143,7 @@ const Navigation = () => {
                 onClick={() => scrollToSection(item.id)}
                 className={`flex flex-col items-center gap-1 transition-all duration-300 ${
                   activeSection === item.id
-                    ? 'text-green-700 dark:text-green-400'
+                    ? 'text-primary dark:text-primary-400'
                     : 'text-gray-600 dark:text-gray-400'
                 }`}
               >
@@ -152,7 +152,7 @@ const Navigation = () => {
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeSectionMobile"
-                    className="w-1 h-1 bg-green-700 dark:bg-green-400 rounded-full"
+                    className="w-1 h-1 bg-primary dark:bg-primary-400 rounded-full"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}

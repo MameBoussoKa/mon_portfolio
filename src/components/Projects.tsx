@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, User, Phone } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import { useState } from 'react';
 import { projects } from '../data/portfolioData';
 
@@ -11,8 +11,10 @@ const Projects = () => {
     ? projects
     : projects.filter(project => project.category === filter);
 
+
+
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900 transition-colors">
+    <section id="projects" className="py-20 bg-cream dark:bg-primary transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,11 +23,11 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900 dark:text-white" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-primary dark:text-cream" style={{ fontFamily: 'Playfair Display, serif' }}>
             Mes Projets
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-green-700 to-blue-600 mx-auto rounded-full"></div>
-          <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+          <p className="mt-6 text-lg text-primary dark:text-accent max-w-2xl mx-auto">
             Une sélection de mes réalisations les plus significatives
           </p>
         </motion.div>
@@ -40,10 +42,10 @@ const Projects = () => {
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+            className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
                 filter === category
-                  ? 'bg-gradient-to-r from-green-700 to-green-600 text-white shadow-lg scale-105'
-                  : 'bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700'
+                  ? 'bg-primary text-cream shadow-lg scale-105'
+                  : 'bg-cream dark:bg-primary text-primary dark:text-accent hover:bg-accent dark:hover:bg-primary'
               }`}
             >
               {category}
@@ -59,35 +61,38 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="bg-cream dark:bg-primary rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             >
-              <div className="relative h-48 bg-gradient-to-br from-green-600 via-green-500 to-blue-600 overflow-hidden">
-                <div className="absolute inset-0 bg-black/20"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <h3 className="text-2xl font-bold text-white text-center px-4">
+              {/* Bannière avec image de fond */}
+              <div
+                className="relative h-48 bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${project.image})` }}
+              >
+                <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div className="absolute inset-0 flex items-center justify-center p-6">
+                  <h3 className="text-2xl font-bold text-white text-center">
                     {project.title}
                   </h3>
-                </div>
-
-                <div className="absolute top-4 right-4">
-                  <span className="px-3 py-1 bg-white/90 dark:bg-gray-900/90 text-green-700 dark:text-green-400 text-xs font-bold rounded-full">
-                    {project.category}
-                  </span>
                 </div>
               </div>
 
               <div className="p-6">
-                <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
+                {/* Badge de catégorie */}
+                <span className="inline-block px-3 py-1 bg-accent dark:bg-primary text-primary dark:text-accent text-sm font-medium rounded-full mb-4">
+                  {project.category}
+                </span>
+
+                <p className="text-primary dark:text-accent mb-6 line-clamp-3">
                   {project.description}
                 </p>
 
-                <div className="mb-4">
-                  <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">Technologies:</p>
+                {/* Technologies utilisées */}
+                <div className="mb-6">
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 text-xs rounded-full font-medium"
+                    className="px-2 py-1 bg-accent dark:bg-primary text-primary dark:text-accent text-xs rounded-md"
                       >
                         {tech}
                       </span>
@@ -95,31 +100,17 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                  <div className="flex items-center gap-2 mb-1">
-                    <User className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                    <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                      Tuteur: {project.tutor}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {project.tutorContact}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-3">
+                {/* Boutons d'action */}
+                <div className="flex gap-4">
                   {project.githubLink && (
                     <a
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary dark:bg-accent text-cream rounded-lg hover:bg-primary/90 dark:hover:bg-accent/90 transition-colors"
                     >
                       <Github className="w-4 h-4" />
-                      <span className="text-sm font-medium">GitHub</span>
+                      <span>Code</span>
                     </a>
                   )}
                   {project.liveLink && (
@@ -127,29 +118,26 @@ const Projects = () => {
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-green-700 to-green-600 text-white rounded-lg hover:from-green-800 hover:to-green-700 transition-colors"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary text-cream rounded-lg hover:bg-primary/90 transition-colors"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      <span className="text-sm font-medium">Demo</span>
+                      <span>Demo</span>
                     </a>
                   )}
+                </div>
+
+                {/* Informations du tuteur */}
+                <div className="mt-4 pt-4 border-t border-accent dark:border-primary">
+                  <div className="text-sm text-primary dark:text-accent">
+                    <p className="font-medium">Tuteur encadreur:</p>
+                    <p className="text-cream dark:text-primary">{project.tutor}</p>
+                    <p className="text-primary dark:text-accent">{project.tutorContact}</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {filteredProjects.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-12"
-          >
-            <p className="text-gray-600 dark:text-gray-400 text-lg">
-              Aucun projet trouvé dans cette catégorie
-            </p>
-          </motion.div>
-        )}
       </div>
     </section>
   );

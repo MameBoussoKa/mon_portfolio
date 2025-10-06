@@ -9,7 +9,8 @@ export const projects: Project[] = [
     category: 'E-commerce',
     githubLink: 'https://github.com/mamediarra',
     tutor: 'Moustapha Diop',
-    tutorContact: '+221 77 123 45 67'
+    tutorContact: '+221 77 123 45 67',
+    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=400&fit=crop'
   },
   {
     id: 2,
@@ -19,7 +20,8 @@ export const projects: Project[] = [
     category: 'Web App',
     githubLink: 'https://github.com/mamediarra',
     tutor: 'Abdou Khadre Diallo',
-    tutorContact: '+221 78 234 56 78'
+    tutorContact: '+221 78 234 56 78',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop'
   },
   {
     id: 3,
@@ -30,7 +32,8 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/mamediarra',
     liveLink: 'https://whatsapp-clone-demo.vercel.app',
     tutor: 'Cheikh Tidiane Fall',
-    tutorContact: '+221 77 345 67 89'
+    tutorContact: '+221 77 345 67 89',
+    image: 'https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800&h=400&fit=crop'
   },
   {
     id: 4,
@@ -40,7 +43,8 @@ export const projects: Project[] = [
     category: 'Backend',
     githubLink: 'https://github.com/mamediarra',
     tutor: 'Mamadou Lamine Seck',
-    tutorContact: '+221 76 456 78 90'
+    tutorContact: '+221 76 456 78 90',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop'
   },
   {
     id: 5,
@@ -50,7 +54,8 @@ export const projects: Project[] = [
     category: 'Web App',
     githubLink: 'https://github.com/mamediarra',
     tutor: 'Fatou Bintou Sarr',
-    tutorContact: '+221 77 567 89 01'
+    tutorContact: '+221 77 567 89 01',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop'
   },
   {
     id: 6,
@@ -60,7 +65,8 @@ export const projects: Project[] = [
     category: 'API',
     githubLink: 'https://github.com/mamediarra',
     tutor: 'Ousmane Dieng',
-    tutorContact: '+221 78 678 90 12'
+    tutorContact: '+221 78 678 90 12',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop'
   },
   {
     id: 7,
@@ -70,7 +76,8 @@ export const projects: Project[] = [
     category: 'Mobile',
     githubLink: 'https://github.com/mamediarra',
     tutor: 'Aissatou Diallo',
-    tutorContact: '+221 77 789 01 23'
+    tutorContact: '+221 77 789 01 23',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=400&fit=crop'
   },
   {
     id: 8,
@@ -80,7 +87,8 @@ export const projects: Project[] = [
     category: 'Backend',
     githubLink: 'https://github.com/mamediarra',
     tutor: 'Ibrahima Ndiaye',
-    tutorContact: '+221 76 890 12 34'
+    tutorContact: '+221 76 890 12 34',
+    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop'
   }
 ];
 
@@ -88,47 +96,47 @@ export const skillCategories: SkillCategory[] = [
   {
     title: 'Frontend',
     skills: [
-      { name: 'React', icon: '⚛️', level: 90 },
-      { name: 'TypeScript', icon: '📘', level: 85 },
-      { name: 'TailwindCSS', icon: '🎨', level: 95 },
-      { name: 'JavaScript', icon: '⚡', level: 90 },
-      { name: 'HTML/CSS', icon: '🌐', level: 95 }
+      { name: 'React', icon: 'Atom', level: 90 },
+      { name: 'TypeScript', icon: 'FileText', level: 85 },
+      { name: 'TailwindCSS', icon: 'Palette', level: 95 },
+      { name: 'JavaScript', icon: 'Zap', level: 90 },
+      { name: 'HTML/CSS', icon: 'Globe', level: 95 }
     ]
   },
   {
     title: 'Backend',
     skills: [
-      { name: 'Node.js', icon: '🟢', level: 88 },
-      { name: 'Express', icon: '🚂', level: 90 },
-      { name: 'PHP', icon: '🐘', level: 75 },
-      { name: 'Prisma', icon: '🔷', level: 80 },
-      { name: 'JWT', icon: '🔐', level: 85 }
+      { name: 'Node.js', icon: 'Server', level: 88 },
+      { name: 'Express', icon: 'Route', level: 90 },
+      { name: 'PHP', icon: 'Code', level: 75 },
+      { name: 'Prisma', icon: 'Database', level: 80 },
+      { name: 'JWT', icon: 'Shield', level: 85 }
     ]
   },
   {
     title: 'Bases de données',
     skills: [
-      { name: 'MySQL', icon: '🐬', level: 82 },
-      { name: 'PostgreSQL', icon: '🐘', level: 78 },
-      { name: 'MongoDB', icon: '🍃', level: 75 },
-      { name: 'JSON Server', icon: '📄', level: 88 }
+      { name: 'MySQL', icon: 'Database', level: 82 },
+      { name: 'PostgreSQL', icon: 'Database', level: 78 },
+      { name: 'MongoDB', icon: 'Database', level: 75 },
+      { name: 'JSON Server', icon: 'FileJson', level: 88 }
     ]
   },
   {
     title: 'DevOps & Outils',
     skills: [
-      { name: 'Git/GitHub', icon: '🔀', level: 90 },
-      { name: 'Docker', icon: '🐳', level: 70 },
-      { name: 'VS Code', icon: '💻', level: 95 },
-      { name: 'Vercel', icon: '▲', level: 85 }
+      { name: 'Git/GitHub', icon: 'GitBranch', level: 90 },
+      { name: 'Docker', icon: 'Container', level: 70 },
+      { name: 'VS Code', icon: 'Code', level: 95 },
+      { name: 'Vercel', icon: 'Cloud', level: 85 }
     ]
   },
   {
     title: 'Design',
     skills: [
-      { name: 'Figma', icon: '🎭', level: 80 },
-      { name: 'Canva', icon: '🖌️', level: 85 },
-      { name: 'Photoshop', icon: '🖼️', level: 75 }
+      { name: 'Figma', icon: 'PenTool', level: 80 },
+      { name: 'Canva', icon: 'Image', level: 85 },
+      { name: 'Photoshop', icon: 'Image', level: 75 }
     ]
   }
 ];

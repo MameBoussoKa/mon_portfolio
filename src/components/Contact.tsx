@@ -34,7 +34,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors">
+    <section id="contact" className="py-20 bg-primary dark:bg-primary-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -43,11 +43,11 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900 dark:text-white" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-cream" style={{ fontFamily: 'Playfair Display, serif' }}>
             Me Contacter
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-green-700 to-blue-600 mx-auto rounded-full"></div>
-          <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
+          <p className="mt-6 text-lg text-accent max-w-2xl mx-auto">
             Une question ? Un projet ? N'hésitez pas à me contacter !
           </p>
         </motion.div>
@@ -60,60 +60,60 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="space-y-6">
-              <div className="flex items-start gap-4 p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">Email</h3>
-                  <a
-                    href={`mailto:${profileData.email}`}
-                    className="text-green-700 dark:text-green-400 hover:underline"
-                  >
-                    {profileData.email}
-                  </a>
-                </div>
-              </div>
+              <div className="flex items-start gap-4 p-6 bg-cream dark:bg-primary rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div className="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+              <Mail className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <h3 className="font-bold text-primary mb-1">Email</h3>
+              <a
+                href={`mailto:${profileData.email}`}
+                className="text-accent hover:underline"
+              >
+                {profileData.email}
+              </a>
+            </div>
+          </div>
 
-              <div className="flex items-start gap-4 p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-4 p-6 bg-cream dark:bg-primary rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                  <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">Téléphone</h3>
+                  <h3 className="font-bold text-primary mb-1">Téléphone</h3>
                   <a
                     href={`tel:${profileData.phone}`}
-                    className="text-green-700 dark:text-green-400 hover:underline"
+                    className="text-primary dark:text-accent hover:underline"
                   >
                     {profileData.phone}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
-                  <MessageCircle className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-4 p-6 bg-cream dark:bg-primary rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                  <MessageCircle className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">WhatsApp</h3>
+                  <h3 className="font-bold text-primary mb-1">WhatsApp</h3>
                   <a
                     href="https://wa.me/221785942490"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-green-700 dark:text-green-400 hover:underline"
+                    className="text-primary dark:text-accent hover:underline"
                   >
                     Envoyer un message
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-6 bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-4 p-6 bg-cream dark:bg-primary rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">Localisation</h3>
-                  <p className="text-gray-700 dark:text-gray-300">{profileData.location}</p>
+                  <h3 className="font-bold text-primary mb-1">Localisation</h3>
+                  <p className="text-primary dark:text-accent">{profileData.location}</p>
                 </div>
               </div>
             </div>
@@ -146,25 +146,25 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl">
-              <div className="mb-6">
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                  Nom complet
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent transition-colors text-gray-900 dark:text-white"
-                  placeholder="Votre nom"
-                />
-              </div>
+              <form onSubmit={handleSubmit} className="bg-cream dark:bg-primary rounded-2xl p-8 shadow-xl">
+                <div className="mb-6">
+                  <label htmlFor="name" className="block text-sm font-semibold text-primary dark:text-accent mb-2">
+                    Nom complet
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-accent dark:bg-primary border border-primary dark:border-accent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-primary dark:text-cream"
+                    placeholder="Votre nom"
+                  />
+                </div>
 
               <div className="mb-6">
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-primary dark:text-accent mb-2">
                   Email
                 </label>
                 <input
@@ -174,13 +174,13 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent transition-colors text-gray-900 dark:text-white"
+                  className="w-full px-4 py-3 bg-accent dark:bg-primary border border-primary dark:border-accent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-primary dark:text-cream"
                   placeholder="votre@email.com"
                 />
               </div>
 
               <div className="mb-6">
-                <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="subject" className="block text-sm font-semibold text-primary dark:text-accent mb-2">
                   Sujet
                 </label>
                 <input
@@ -190,13 +190,13 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent transition-colors text-gray-900 dark:text-white"
+                  className="w-full px-4 py-3 bg-accent dark:bg-primary border border-primary dark:border-accent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-primary dark:text-cream"
                   placeholder="Sujet de votre message"
                 />
               </div>
 
               <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-primary dark:text-accent mb-2">
                   Message
                 </label>
                 <textarea
@@ -206,7 +206,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent transition-colors text-gray-900 dark:text-white resize-none"
+                  className="w-full px-4 py-3 bg-accent dark:bg-primary border border-primary dark:border-accent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-primary dark:text-cream resize-none"
                   placeholder="Votre message..."
                 />
               </div>
@@ -214,11 +214,11 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 bg-gradient-to-r from-green-700 to-green-600 hover:from-green-800 hover:to-green-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-4 bg-primary hover:bg-primary/90 text-cream font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <div className="w-5 h-5 border-2 border-cream border-t-transparent rounded-full animate-spin"></div>
                     Envoi en cours...
                   </>
                 ) : (
