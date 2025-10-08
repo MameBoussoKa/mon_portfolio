@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { skillCategories } from '../data/portfolioData';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../data/translations';
 import {
   Atom,
   FileText,
@@ -25,6 +27,8 @@ import {
 } from 'lucide-react';
 
 const Skills = () => {
+  const { language } = useLanguage();
+
   return (
     <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,11 +40,11 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900 dark:text-white" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Compétences
+            {translations[language].skills.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-600 mx-auto rounded-full"></div>
           <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Technologies et outils que je maîtrise pour créer des solutions digitales performantes
+            {translations[language].skills.description}
           </p>
         </motion.div>
 
@@ -55,7 +59,12 @@ const Skills = () => {
               className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow"
             >
               <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white border-b-2 border-primary pb-3">
-                {category.title}
+                {category.title === 'Frontend' ? translations[language].skills.frontend :
+                 category.title === 'Backend' ? translations[language].skills.backend :
+                 category.title === 'Bases de données' ? translations[language].skills.databases :
+                 category.title === 'DevOps & Outils' ? translations[language].skills.devops :
+                 category.title === 'Design' ? translations[language].skills.design :
+                 category.title}
               </h3>
 
               <div className="space-y-5">
@@ -141,54 +150,54 @@ const Skills = () => {
           className="mt-12 grid md:grid-cols-2 gap-8"
         >
           <div className="bg-gradient-to-br from-primary to-primary-700 rounded-2xl p-8 text-white shadow-xl">
-            <h3 className="text-2xl font-bold mb-4">Formation</h3>
+            <h3 className="text-2xl font-bold mb-4">{translations[language].skills.education}</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <span className="text-primary-200 mt-1"><BookOpen /></span>
                 <div>
-                  <p className="font-semibold">Licence en Informatique</p>
-                  <p className="text-primary-100 text-sm">Université Numérique Cheikh A Kane - 2024-2025</p>
+                  <p className="font-semibold">{translations[language].skills.computerScienceDegree}</p>
+                  <p className="text-primary-100 text-sm">{translations[language].skills.digitalUniversity} - 2024-2025</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary-200 mt-1"><Monitor /></span>
                 <div>
-                  <p className="font-semibold">Certification Dev Web & Mobile</p>
-                  <p className="text-primary-100 text-sm">Sonatel Academy - 2024-2025</p>
+                  <p className="font-semibold">{translations[language].skills.webMobileCert}</p>
+                  <p className="text-primary-100 text-sm">{translations[language].skills.sonatelAcademy} - 2024-2025</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary-200 mt-1"><Palette /></span>
                 <div>
-                  <p className="font-semibold">Certification Multimédia</p>
-                  <p className="text-primary-100 text-sm">EDEP Thiès - 2022-2023</p>
+                  <p className="font-semibold">{translations[language].skills.multimediaCert}</p>
+                  <p className="text-primary-100 text-sm">{translations[language].skills.edepThies} - 2022-2023</p>
                 </div>
               </li>
             </ul>
           </div>
 
           <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl p-8 text-white shadow-xl">
-            <h3 className="text-2xl font-bold mb-4">Distinctions</h3>
+            <h3 className="text-2xl font-bold mb-4">{translations[language].skills.distinctions}</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <span className="text-primary-200 mt-1"><Trophy /></span>
                 <div>
-                  <p className="font-semibold">Hackathon Hedera 2025</p>
-                  <p className="text-primary-100 text-sm">Solution blockchain innovante</p>
+                  <p className="font-semibold">{translations[language].skills.hederaHackathon}</p>
+                  <p className="text-primary-100 text-sm">{translations[language].skills.innovativeBlockchain}</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary-200 mt-1"><Target /></span>
                 <div>
-                  <p className="font-semibold">Hackathon Touba 2025</p>
-                  <p className="text-primary-100 text-sm">Attestation de participation</p>
+                  <p className="font-semibold">{translations[language].skills.toubaHackathon}</p>
+                  <p className="text-primary-100 text-sm">{translations[language].skills.participationCert}</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary-200 mt-1"><Rocket /></span>
                 <div>
-                  <p className="font-semibold">Entrepreneuriat Digital</p>
-                  <p className="text-primary-100 text-sm">Création de "Les Délices de Madibo"</p>
+                  <p className="font-semibold">{translations[language].skills.digitalEntrepreneurship}</p>
+                  <p className="text-primary-100 text-sm">{translations[language].skills.madiboDelights}</p>
                 </div>
               </li>
             </ul>

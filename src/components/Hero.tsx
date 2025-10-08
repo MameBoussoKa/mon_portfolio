@@ -2,8 +2,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown, Download, Sparkles } from 'lucide-react';
 import { profileData, socialLinks } from '../data/portfolioData';
 import * as Icons from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../data/translations';
 
 const Hero = () => {
+  const { language } = useLanguage();
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, -50]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.8]);
@@ -87,7 +90,7 @@ const Hero = () => {
             transition={{ delay: 0.3 }}
             className="text-lg sm:text-xl lg:text-2xl text-accent mb-2 font-semibold italic tracking-wide"
           >
-            "Code, Create, Innovate"
+            "{translations[language].hero.slogan}"
           </motion.p>
 
           <motion.p
@@ -96,7 +99,7 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-lg sm:text-xl lg:text-2xl text-primary mb-6 font-medium tracking-wide"
           >
-            {profileData.title}
+            {translations[language].hero.title}
           </motion.p>
 
           <motion.p
@@ -105,7 +108,7 @@ const Hero = () => {
             transition={{ delay: 0.5 }}
             className="text-base sm:text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed font-light"
           >
-            Passionnée par le développement web & mobile, je crée des applications modernes et performantes. De l'idée à la réalisation, je transforme les concepts en solutions digitales concrètes.
+            {translations[language].hero.bio}
           </motion.p>
 
           <motion.div
@@ -119,14 +122,14 @@ const Hero = () => {
               className="group px-8 py-4 bg-primary hover:bg-primary-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 transform hover:scale-105"
             >
               <Download className="w-5 h-5 group-hover:animate-bounce" />
-              Télécharger CV
+              {translations[language].hero.downloadCV}
             </button>
 
             <button
               onClick={() => scrollToSection('contact')}
               className="px-8 py-4 bg-cream text-primary border-2 border-primary rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:bg-primary hover:text-cream"
             >
-              Me Contacter
+              {translations[language].hero.contactMe}
             </button>
           </motion.div>
 

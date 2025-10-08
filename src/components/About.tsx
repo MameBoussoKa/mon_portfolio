@@ -1,25 +1,29 @@
 import { motion } from 'framer-motion';
 import { Award, BookOpen, Briefcase, MapPin, Mail, Phone } from 'lucide-react';
 import { profileData } from '../data/portfolioData';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../data/translations';
 
 const About = () => {
+  const { language } = useLanguage();
+
   const experiences = [
     {
       year: '2025',
-      title: 'Hackathon Hedera',
-      description: 'Développement d\'une solution blockchain innovante',
+      title: language === 'fr' ? 'Hackathon Hedera' : 'Hedera Hackathon',
+      description: translations[language].about.hackathonHedera,
       icon: Award
     },
     {
       year: '2024-2025',
-      title: 'Entrepreneuriat',
-      description: 'Création et lancement de l\'application Les Délices de Madibo',
+      title: language === 'fr' ? 'Entrepreneuriat' : 'Entrepreneurship',
+      description: translations[language].about.entrepreneurship,
       icon: Briefcase
     },
     {
       year: '2024-2025',
-      title: 'Sonatel Academy',
-      description: 'Certification en Développement Web & Mobile',
+      title: language === 'fr' ? 'Sonatel Academy' : 'Sonatel Academy',
+      description: translations[language].about.sonatelAcademy,
       icon: BookOpen
     }
   ];
@@ -35,7 +39,7 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-primary dark:text-cream" style={{ fontFamily: 'Playfair Display, serif' }}>
-            À Propos
+            {translations[language].about.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
         </motion.div>
@@ -61,7 +65,7 @@ const About = () => {
               <div className="flex items-center gap-3 p-4 bg-accent dark:bg-primary rounded-xl">
                 <MapPin className="w-5 h-5 text-primary dark:text-accent flex-shrink-0" />
                 <div>
-                  <p className="text-sm text-primary dark:text-accent">Localisation</p>
+                  <p className="text-sm text-primary dark:text-accent">{translations[language].about.location}</p>
                   <p className="font-semibold text-primary dark:text-cream">{profileData.location}</p>
                 </div>
               </div>
@@ -69,7 +73,7 @@ const About = () => {
               <div className="flex items-center gap-3 p-4 bg-accent dark:bg-primary rounded-xl">
                 <Phone className="w-5 h-5 text-primary dark:text-accent flex-shrink-0" />
                 <div>
-                  <p className="text-sm text-primary dark:text-accent">Téléphone</p>
+                  <p className="text-sm text-primary dark:text-accent">{translations[language].about.phone}</p>
                   <p className="font-semibold text-primary dark:text-cream">{profileData.phone}</p>
                 </div>
               </div>
@@ -77,7 +81,7 @@ const About = () => {
               <div className="flex items-center gap-3 p-4 bg-accent dark:bg-primary rounded-xl sm:col-span-2">
                 <Mail className="w-5 h-5 text-primary dark:text-accent flex-shrink-0" />
                 <div>
-                  <p className="text-sm text-primary dark:text-accent">Email</p>
+                  <p className="text-sm text-primary dark:text-accent">{translations[language].about.email}</p>
                   <p className="font-semibold text-primary dark:text-cream">{profileData.email}</p>
                 </div>
               </div>
@@ -91,21 +95,15 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-3xl font-bold mb-6 text-primary dark:text-cream" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Qui suis-je ?
+              {translations[language].about.whoAmI}
             </h3>
 
-            <p className="text-primary dark:text-accent mb-6 leading-relaxed text-lg">
-              {profileData.bio}
-            </p>
-
             <p className="text-primary dark:text-accent mb-8 leading-relaxed">
-              Diplômée de Sonatel Academy et actuellement en Licence à l'Université Numérique Cheikh Ahmadou Kane,
-              je possède une solide formation technique enrichie par des certifications en développement web & mobile
-              et en multimédia.
+              {translations[language].about.bio}
             </p>
 
             <h4 className="text-2xl font-bold mb-6 text-primary dark:text-cream">
-              Parcours & Expériences
+              {translations[language].about.experience}
             </h4>
 
             <div className="space-y-6">
@@ -137,9 +135,16 @@ const About = () => {
             </div>
 
             <div className="mt-8 p-6 bg-gradient-to-r from-cream to-accent dark:from-primary/20 dark:to-accent/20 rounded-xl border border-primary dark:border-accent">
-              <h5 className="font-bold text-primary dark:text-cream mb-3">Soft Skills</h5>
+              <h5 className="font-bold text-primary dark:text-cream mb-3">{translations[language].about.softSkills}</h5>
               <div className="flex flex-wrap gap-2">
-                {['Leadership', 'Travail d\'équipe', 'Adaptabilité', 'Esprit entrepreneurial', 'Créativité', 'Gestion du temps'].map((skill) => (
+                {[
+                  translations[language].about.leadership,
+                  translations[language].about.teamwork,
+                  translations[language].about.adaptability,
+                  translations[language].about.entrepreneurialSpirit,
+                  translations[language].about.creativity,
+                  translations[language].about.timeManagement
+                ].map((skill) => (
                   <span
                     key={skill}
                     className="px-4 py-2 bg-cream dark:bg-primary rounded-full text-sm font-medium text-primary dark:text-accent shadow-sm"

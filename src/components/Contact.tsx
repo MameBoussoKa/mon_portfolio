@@ -2,8 +2,11 @@ import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send, MessageCircle } from 'lucide-react';
 import { useState, FormEvent } from 'react';
 import { profileData } from '../data/portfolioData';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../data/translations';
 
 const Contact = () => {
+  const { language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -44,11 +47,11 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-cream" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Me Contacter
+            {translations[language].contact.title}
           </h2>
           <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
           <p className="mt-6 text-lg text-accent max-w-2xl mx-auto">
-            Une question ? Un projet ? N'hésitez pas à me contacter !
+            {translations[language].contact.description}
           </p>
         </motion.div>
 
@@ -65,7 +68,7 @@ const Contact = () => {
               <Mail className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <h3 className="font-bold text-primary mb-1">Email</h3>
+              <h3 className="font-bold text-primary mb-1">{translations[language].contact.emailLabel}</h3>
               <a
                 href={`mailto:${profileData.email}`}
                 className="text-accent hover:underline"
@@ -80,7 +83,7 @@ const Contact = () => {
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-primary mb-1">Téléphone</h3>
+                  <h3 className="font-bold text-primary mb-1">{translations[language].contact.phone}</h3>
                   <a
                     href={`tel:${profileData.phone}`}
                     className="text-primary dark:text-accent hover:underline"
@@ -95,14 +98,14 @@ const Contact = () => {
                   <MessageCircle className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-primary mb-1">WhatsApp</h3>
+                  <h3 className="font-bold text-primary mb-1">{translations[language].contact.whatsapp}</h3>
                   <a
                     href="https://wa.me/221785942490"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary dark:text-accent hover:underline"
                   >
-                    Envoyer un message
+                    {translations[language].contact.sendMessage}
                   </a>
                 </div>
               </div>
@@ -112,7 +115,7 @@ const Contact = () => {
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-primary mb-1">Localisation</h3>
+                  <h3 className="font-bold text-primary mb-1">{translations[language].contact.location}</h3>
                   <p className="text-primary dark:text-accent">{profileData.location}</p>
                 </div>
               </div>
@@ -149,7 +152,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="bg-cream dark:bg-primary rounded-2xl p-8 shadow-xl">
                 <div className="mb-6">
                   <label htmlFor="name" className="block text-sm font-semibold text-primary dark:text-accent mb-2">
-                    Nom complet
+                    {translations[language].contact.name}
                   </label>
                   <input
                     type="text"
@@ -165,7 +168,7 @@ const Contact = () => {
 
               <div className="mb-6">
                 <label htmlFor="email" className="block text-sm font-semibold text-primary dark:text-accent mb-2">
-                  Email
+                  {translations[language].contact.email}
                 </label>
                 <input
                   type="email"
@@ -181,7 +184,7 @@ const Contact = () => {
 
               <div className="mb-6">
                 <label htmlFor="subject" className="block text-sm font-semibold text-primary dark:text-accent mb-2">
-                  Sujet
+                  {translations[language].contact.subject}
                 </label>
                 <input
                   type="text"
@@ -197,7 +200,7 @@ const Contact = () => {
 
               <div className="mb-6">
                 <label htmlFor="message" className="block text-sm font-semibold text-primary dark:text-accent mb-2">
-                  Message
+                  {translations[language].contact.message}
                 </label>
                 <textarea
                   id="message"
@@ -219,12 +222,12 @@ const Contact = () => {
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-cream border-t-transparent rounded-full animate-spin"></div>
-                    Envoi en cours...
+                    {language === 'fr' ? 'Envoi en cours...' : 'Sending...'}
                   </>
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    Envoyer le message
+                    {translations[language].contact.send}
                   </>
                 )}
               </button>
@@ -235,7 +238,7 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="mt-4 p-4 bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 rounded-lg text-green-800 dark:text-green-300 text-center"
                 >
-                  Message envoyé avec succès ! Je vous répondrai bientôt.
+                  {translations[language].contact.successMessage}
                 </motion.div>
               )}
             </form>

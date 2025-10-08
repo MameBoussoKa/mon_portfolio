@@ -1,19 +1,22 @@
 import { motion } from 'framer-motion';
 import { Home, User, Code, Briefcase, Mail, Moon, Sun } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../data/translations';
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState('home');
   const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
 
-  const navItems = [
-    { id: 'home', label: 'Accueil', icon: Home },
-    { id: 'about', label: 'À Propos', icon: User },
-    { id: 'skills', label: 'Compétences', icon: Code },
-    { id: 'projects', label: 'Projets', icon: Briefcase },
-    { id: 'contact', label: 'Contact', icon: Mail }
-  ];
+  const navItems = useMemo(() => [
+    { id: 'home', label: translations[language].nav.home, icon: Home },
+    { id: 'about', label: translations[language].nav.about, icon: User },
+    { id: 'skills', label: translations[language].nav.skills, icon: Code },
+    { id: 'projects', label: translations[language].nav.projects, icon: Briefcase },
+    { id: 'contact', label: translations[language].nav.contact, icon: Mail }
+  ], [language]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,17 +96,28 @@ const Navigation = () => {
               })}
             </div>
 
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-yellow-500" />
-              ) : (
-                <Moon className="w-5 h-5 text-gray-700" />
-              )}
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? (
+                  <Sun className="w-5 h-5 text-yellow-500" />
+                ) : (
+                  <Moon className="w-5 h-5 text-gray-700" />
+                )}
+              </button>
+
+              <button
+                onClick={toggleLanguage}
+                className="px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors font-medium text-sm"
+                aria-label="Toggle language"
+                title={`Switch to ${language === 'fr' ? 'English' : 'Français'}`}
+              >
+                {language === 'fr' ? '🇫🇷 FR' : '🇬🇧 EN'}
+              </button>
+            </div>
           </div>
         </div>
       </motion.nav>
