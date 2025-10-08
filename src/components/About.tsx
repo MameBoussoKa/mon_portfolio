@@ -51,7 +51,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl"></div>
               <img
-                src="/WhatsApp Image 2025-10-03 at 10.42.29.jpeg"
+                src="/Image collée.png"
                 alt="Développeuse au travail"
                 className="relative rounded-3xl shadow-2xl shadow-primary/20 w-full object-contain h-[500px] border-4 border-cream/50 group-hover:border-primary/30 transition-all duration-500"
               />

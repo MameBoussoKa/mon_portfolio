@@ -49,10 +49,19 @@ const Navigation = () => {
           <div className="flex items-center justify-between h-16">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-xl font-bold bg-gradient-to-r from-primary to-primary-600 bg-clip-text text-transparent cursor-pointer"
+              className="cursor-pointer"
               onClick={() => scrollToSection('home')}
             >
-              MDBK
+              <div className="flex items-center gap-2">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-lg blur-sm opacity-50"></div>
+                  <div className="relative bg-gradient-to-r from-primary to-accent p-2 rounded-lg shadow-lg">
+                    <span className="text-white font-mono text-sm font-bold tracking-wider">
+                      {'<Madibo.DevFull/>'}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
             <div className="hidden md:flex items-center gap-1">
