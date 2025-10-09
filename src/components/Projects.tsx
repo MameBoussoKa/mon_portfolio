@@ -1,26 +1,11 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
-import { useState } from 'react';
 import { projects } from '../data/portfolioData';
 import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../data/translations';
 
 const Projects = () => {
   const { language } = useLanguage();
-  const [filter, setFilter] = useState<string>('All');
-  const categories = [
-    translations[language].projects.all,
-    translations[language].projects.webApp,
-    translations[language].projects.eCommerce,
-    translations[language].projects.mobile,
-    translations[language].projects.backend,
-    translations[language].projects.api,
-    translations[language].projects.frontend
-  ];
-
-  const filteredProjects = filter === translations[language].projects.all
-    ? projects
-    : projects.filter(project => project.category === filter);
 
 
 
@@ -43,29 +28,8 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setFilter(category)}
-            className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                filter === category
-                  ? 'bg-primary text-cream shadow-lg scale-105'
-                  : 'bg-cream dark:bg-primary text-primary dark:text-accent hover:bg-accent dark:hover:bg-primary'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </motion.div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-           {filteredProjects.map((project, index) => {
+           {projects.map((project, index) => {
              // Get translated project data based on project ID
              const getTranslatedProject = (id: number) => {
                const projectKeys = [
