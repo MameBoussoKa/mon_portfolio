@@ -1,40 +1,12 @@
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Send, MessageCircle } from 'lucide-react';
-import { useState, FormEvent } from 'react';
+import { Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
 import { profileData } from '../data/portfolioData';
 import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../data/translations';
+import ContactForm from './ContactForm';
 
 const Contact = () => {
   const { language } = useLanguage();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    setSubmitStatus('success');
-    setIsSubmitting(false);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-
-    setTimeout(() => setSubmitStatus('idle'), 5000);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
 
   return (
     <section id="contact" className="py-20 bg-primary dark:bg-primary-900 transition-colors">
@@ -149,99 +121,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-              <form onSubmit={handleSubmit} className="bg-cream dark:bg-primary rounded-2xl p-8 shadow-xl">
-                <div className="mb-6">
-                  <label htmlFor="name" className="block text-sm font-semibold text-primary dark:text-accent mb-2">
-                    {translations[language].contact.name}
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-accent dark:bg-primary border border-primary dark:border-accent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-primary dark:text-cream"
-                    placeholder="Votre nom"
-                  />
-                </div>
-
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-sm font-semibold text-primary dark:text-accent mb-2">
-                  {translations[language].contact.email}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-accent dark:bg-primary border border-primary dark:border-accent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-primary dark:text-cream"
-                  placeholder="votre@email.com"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="subject" className="block text-sm font-semibold text-primary dark:text-accent mb-2">
-                  {translations[language].contact.subject}
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-accent dark:bg-primary border border-primary dark:border-accent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-primary dark:text-cream"
-                  placeholder="Sujet de votre message"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-semibold text-primary dark:text-accent mb-2">
-                  {translations[language].contact.message}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-accent dark:bg-primary border border-primary dark:border-accent rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors text-primary dark:text-cream resize-none"
-                  placeholder="Votre message..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-4 bg-primary hover:bg-primary/90 text-cream font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-cream border-t-transparent rounded-full animate-spin"></div>
-                    {language === 'fr' ? 'Envoi en cours...' : 'Sending...'}
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    {translations[language].contact.send}
-                  </>
-                )}
-              </button>
-
-              {submitStatus === 'success' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-4 p-4 bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 rounded-lg text-green-800 dark:text-green-300 text-center"
-                >
-                  {translations[language].contact.successMessage}
-                </motion.div>
-              )}
-            </form>
+            <ContactForm />
           </motion.div>
         </div>
       </div>
