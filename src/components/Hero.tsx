@@ -1,9 +1,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowDown, Download, Sparkles } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { profileData, socialLinks } from '../data/portfolioData';
 import * as Icons from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../data/translations';
+import DownloadCV from './DownloadCV';
 
 const Hero = () => {
   const { language } = useLanguage();
@@ -11,12 +12,6 @@ const Hero = () => {
   const y = useTransform(scrollY, [0, 300], [0, -50]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.8]);
 
-  const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/cv-mame-diarra-ka.pdf';
-    link.download = 'CV_Mame_Diarra_Bousso_Ka.pdf';
-    link.click();
-  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -117,13 +112,7 @@ const Hero = () => {
             transition={{ delay: 0.5 }}
             className="flex flex-wrap items-center justify-center gap-4 mb-12"
           >
-            <button
-              onClick={handleDownloadCV}
-              className="group px-8 py-4 bg-primary hover:bg-primary-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 transform hover:scale-105"
-            >
-              <Download className="w-5 h-5 group-hover:animate-bounce" />
-              {translations[language].hero.downloadCV}
-            </button>
+            <DownloadCV text={translations[language].hero.downloadCV} />
 
             <button
               onClick={() => scrollToSection('contact')}

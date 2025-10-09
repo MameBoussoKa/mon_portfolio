@@ -13,7 +13,12 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    if (publicKey) {
+      emailjs.init(publicKey);
+    } else {
+      console.error('EmailJS public key not found in environment variables');
+    }
   }, []);
 
   const handleSubmit = async (e: FormEvent) => {

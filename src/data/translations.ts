@@ -15,7 +15,7 @@ export const translations = {
       title: 'Développeuse Web & Mobile Full-Stack',
       slogan: 'Code, Create, Innovate',
       bio: 'Passionnée par le développement web & mobile, je crée des applications modernes et performantes. De l\'idée à la réalisation, je transforme les concepts en solutions digitales concrètes.',
-      downloadCV: 'Télécharger CV',
+      downloadCV: 'Télécharger mon CV',
       contactMe: 'Me Contacter'
     },
 
@@ -173,7 +173,7 @@ export const translations = {
       title: 'Full-Stack Web & Mobile Developer',
       slogan: 'Code, Create, Innovate',
       bio: 'Passionate about web and mobile development, I create modern and high-performance applications. From idea to implementation, I transform concepts into concrete digital solutions.',
-      downloadCV: 'Download CV',
+      downloadCV: 'Download my CV',
       contactMe: 'Contact Me'
     },
 
